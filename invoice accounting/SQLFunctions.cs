@@ -13,8 +13,11 @@ namespace invoice_accounting
     class SQLFunctions
     {
 
+        // Path to Database
+
         private static readonly SqlConnection Connection = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog = Invoice; Integrated Security=true;");
 
+        // Refresh database method
 
         public static void Refresh(DataGridView dataGridView)
         {
@@ -36,7 +39,7 @@ namespace invoice_accounting
             }
         }
 
-  
+        // Insert new line in database method
 
         public static void Insert(string Name, decimal Money)
         {
@@ -58,6 +61,7 @@ namespace invoice_accounting
             }
         }
 
+        // Delete existing line in database by id method
 
         public static void Delete(int id)
         {
@@ -77,6 +81,8 @@ namespace invoice_accounting
                 Connection.Close();
             }
         }
+
+        // Changing existing line in database method
 
         public static void Update(int ID, string newUserName, decimal newMoney)
         {
@@ -99,6 +105,8 @@ namespace invoice_accounting
             }
         }
 
+        // Display lines from database by name of clients method
+
         public static void Select(DataGridView dataGridView, string ClientName)
         {
             try
@@ -119,6 +127,7 @@ namespace invoice_accounting
             }
         }
 
+        // Sum up the clients money and writing it in the bottom of datagrid method
 
         public static void Sum(DataGridView dataGridView, string ClientName)
         {
